@@ -1,0 +1,86 @@
+/*
+	기능 : droptop.html의 스타일을 적용시키는 파일
+	작성자 : 김례화
+	작성일 : 22.05.20
+*/
+/* 1레벨 메뉴 */
+.dropdownmenu > li{ /* 부모태그 > 자식태그 : (부모태그 밑의 자식태그 의미) 영역, 바로 밑의 자식태그만! */ 
+	float:left; /*왼쪽부터 정렬*/
+	position:relative; /* 기준점을 지정->오른쪽,아래 특정 위치에 배치(상대적인 좌표값), 현재의 기준:Home - 첫번째니까*/
+							/* absolute ->(절대값) 좌측 상단,같은 위치에 계속 뿌리는 것*/	
+							/*ㄴ>거의 relative 아니면 absolute, static은 default라 잘 안쓰고, fixed는 더 안씀 */
+	background:#67b0d1;
+	width:25%; /* 전체100%/메뉴갯수 */
+}
+.dropdownmenu > li > a{/*상단 메뉴의 글자 부분*/ /*글자가 a태그 안에 들어있으니까 a태그까지 지정해야 함.*/
+	display:block; /*무조건 한줄은 점유, 다음줄로 개행*/
+	font-size:16px;
+	color:#ffffff; /*글자색은 흰색*/
+	text-align:center; /*글자 가운데 정렬*/
+	height:60px;
+	line-height:60px;/*텍스트 행 사이의 간격에 사용*/
+}
+/*1레벨 메누에 마우스를 갖다댔을 때 배경색 지정(가상선택자)*/
+.dropdownmenu > li:hover{ /*가상선택자 형식-> 대상자(1단계메뉴):hover 즉, :hover
+																	ㄴ> onmouseover와 의미가 같다. css에서는 가상선택자 써야 함 */
+	background:#7bbbd7;
+}
+
+/* 1레벨 메뉴에 마우스를 갖다댔을 때 하위 메뉴(2~4단계) 위치 설정 */
+.dropdownmenu > li:hover > ul{ /*마우스 갖다댄 상태에서 하위ul*/
+	top:60px; /* 상단메뉴의 폭 바로 밑에 나올 수 있는 거리, %는 애매해서 px로 계산했음. */
+	left:0;
+}
+
+/* 2~4레벨 메뉴의 속성 - 2레벨 이하는 안보이게! */
+.dropdownmenu ul { /* dropdown 띄어쓰기 ul : dropdown 밑의 모든 ul */
+							 /* 부모태그 자식태그 (자식 태그 밑의 손자 태그까지 적용) */
+	position:absolute;
+	top:-9999px;/*위쪽으로 완전히 위치를 옮겨서 안보이게 설정, top:y축, +:아래로, -:위로 */
+	z-index:9999; /*하위메뉴->동영상, 이미지보다 우선적으로 보여주게 하기 위해서*/
+	/*z-index:겹치는 요소, 하위메뉴 내렸을 때 동영상이나 이미지랑 겹쳤을 때 우선적으로 제일 위에서 보여주기 위함.*/
+	width:140px; /*하위 메뉴가 나오는 범위*/
+	border:1px solid #cccccc;
+}
+
+/* 2레벨 메뉴의 위치 속성 지정 */
+.dropdownmenu ul li{/*dropdownmenu의 하위 모든 ul의 하위 모든 li*/
+	position:relative /*2->3->4, 그래야 2단계 바로 옆에 3단계 나오고 3단계 바로 옆에 4단계 나옴!*/
+
+}
+
+/*2레벨 메뉴의 텍스트 속성/배경색/여백 지정*/
+.dropdownmenu ul a{/*dropdownmenu의 하위 모든 ul의 하위 모든 a태그(글자가 a태그 안에 있으므로)*/
+	display:block;
+	color:#aaaaaa;
+	font-size:12px;
+	line-height:40px; /*줄 간격*/
+	background:#ffffff;
+	padding-left:20px; /*테두리와 메뉴 사이의 거리*/
+}
+
+/*2레벨 메뉴에 마우스를 갖다댈 때 배경색 변경*/
+.dropdownmenu ul a:hover{
+	color:#ffffff;
+	background:#67b0d1;
+}
+
+/*2레벨 메뉴 항목을 마우스를 갖다댈 때 li 태그 밑에 ul태그 설정 */
+.dropdownmenu ul li:hover > ul{/* 3레벨 이하 */
+position:absolute; /* 정확하게 좌표값을 설정할 때 사용 */
+top:0; /* y축은 변화가 없다 그대로 위치 - 2레벨 메뉴의 css3의 하위 메뉴이므로 설정 안했을 때는 css3 자리가 시작점임! */
+left:100%; /*2레벨과 3레벨이 겹치는 부분 - top은 그대로 두고 왼쪽에서 100%만큼 옮기는 것!
+				  2레벨과 3레벨이 겹치는 경우 (0%)
+				  2레벨과 3레벨이 반이 겹치는 경우 (50%)*/
+
+
+}
+
+
+/* 상단 메뉴를 맨 좌측에 고정(위치) */
+body,ul{
+	margin:0; /*밖의 여백*/
+	padding:0; /*안쪽 여백*/
+}
+ul {list-style:none;}   /*ul 마크 없애기*/
+a  {text-decoration:none;} /*밑줄 없애기*/

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>드롭다운 상단메뉴 (droptop2.html)</title>
+  <link href="./css/droptop.css" rel="stylesheet">
+ </head>
+ <body>
+	<div> <!-- 상단메뉴를 작성하기 위해 영역 설정 --><!-- 스타일 쓸 때 레이아웃 잡는데 span태그보다 유용 -->
+		<ul class="dropdownmenu"><!-- 1단계 태그 -->
+			<li><a href="#">Home</a></li><!-- 메인페이지 -->
+			<li><a href="#">Service</a><!-- 서브메뉴 만들고 싶을 때 li태그 안에 ul태그를 추가 -->
+				<ul><!-- 2단계 태그 -->
+					<li><a href="">HTML5</a></li>
+					<li><a href="">CSS3</a>
+							<ul><!-- 3단계 태그 -->
+								<li><a href="#">Menu1</a></li>
+								<li><a href="#">Menu2</a>
+										<ul><!-- 4단계 태그 -->
+											<li><a href="#">subMenu</a></li>
+										</ul>
+								</li>
+							</ul>
+					</li>
+				</ul>
+
+			</li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
+ </body>
+</html>
