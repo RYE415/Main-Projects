@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>메인페이지(main-2.html)</title>
+  <!-- 
+		media 속성(반응형): 웹의 크기를 지정할 때 사용(해상도 지정할 때)
+  -->
+  <link href="css/main.css" 
+				  rel="stylesheet" tyle="text/css" media="screen and (min-width:768px)"> 
+					<!-- >=768px :최소 해상도 768px, 해상도가 768 이상인 애들은 main.css 나옴-ex) pc환경 -->
+														<!-- screen*띄어쓰기*and*띄어쓰기*~, min:minimize -->
+  <link href="css/main-1.css" 
+				  rel="stylesheet" tyle="text/css" 
+				   media="screen and (max-width:768px)"><!-- <=768px : 최대 해상도 768px, 최대 해상도가 768이 안되는 애들은 main-1.css 나옴-ex) 모바일 환경 -->
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> <!-- jquery쓰기 위해 라이브러리 불러오는 것 -->
+<script src="../../myproject_img/js/main.js"></script>
+<script src="../../myproject_img/js/jquery.cycle2.js"></script>
+ </head>
+ <body>file:///C:/webtest/portfolio/myproject_img/img/sc1-img3.jpg
+	<div class="wrap"><!-- 본문내용 전체를 묶어주는 영역(container) -->
+		<header class="hd1"><!-- pc상태의 header -->
+			<h1>innisfree</h1><!-- 회사로고(이미지링크) -->
+			<nav class="nv1"><!-- 상단메뉴, 로그인 -->
+				<div><a href="#" class="main1">SHOPPING</a>
+						 <ul class="sub">
+							<li><a href="#" class="a1">유형별 제품</a>
+									<ul class="sub1">
+										<li><a href="#">스킨케어</a></li>
+										<li><a href="#">팩/마스크</a></li>
+										<li><a href="#">페이스 메이크업</a></li>
+										<li><a href="#">컬러 메이크업</a></li>
+										<li><a href="#">클렌징</a></li>
+										<li><a href="#">선케어</a></li>
+										<li><a href="#">바디</a></li>
+										<li><a href="#">헤어</a></li>
+										<li><a href="#">방향제</a></li>
+										<li><a href="#">베이비</a></li>
+										<li><a href="#">미용소품</a></li>
+										<li><a href="#">남성</a></li>
+									</ul>
+							
+							
+							</li>
+							<li><a href="#">라인별 제품</a></li>
+							<li><a href="#">온라인 제품</a></li>
+							<li><a href="#">온라인 핫딜</a></li>
+						 </ul>
+				</div>
+				<div><a href="#" class="main2">EVENT</a></div>
+				<div><a href="aboutus.html" class="main3">ABOUT US</a></div>
+			
+			</nav>
+			<nav class="nv2">
+						 <ul>
+							 <li><a href="#">Login</a></li>
+							 <li><a href="#">MyPage</a></li>
+						 </ul>
+			</nav>
+		</header>
+		<header class="hd2">
+		<img src="../../myproject_img/img/hd2.png" alt="mb">
+		</header><!-- 모바일 때문에 한 것 -->
+		<!-- 메뉴 밑에 슬라이드쇼(애니메이션 효과) -->
+		<div class="cycle-slideshow"><!-- 무조건 cycle-slideshow라고 줘야 함 -->
+			<img src="../../myproject_img/img/sc1-img3.jpg" alt="sc-3">
+			<img src="../../myproject_img/img/sc1-img2.jpg" alt="sc-2">
+			<img src="../../myproject_img/img/sc1-img1.jpg" alt="sc-1">
+
+
+		</div>
+
+		<!-- 소제목이 있는 단락 -->
+		<section class="sc2">
+			<img src="../../myproject_img/img/sc2.png">
+		</section>
+		<section class="sc3">
+			<img src="../../myproject_img/img/sc3.png">
+		</section>
+
+		<!-- article 4개를 구체적인 본문 내용(베스트셀러 목록,자세한 항목) -->
+		<article class="at1">
+			<h3>BEST SELLER</h3>
+				<!-- d1 -->
+				<div class="d1">
+					<figure>
+						<img src="../../myproject_img/img/at1-img1.png" alt="at-1">
+						<figcaption class="fc1">
+							<img src="../../myproject_img/img/at1-img5.png">트루케어 시카 인텐시브 밤 20,000원
+
+						</figcaption>
+					</figure>
+				</div>
+				<!-- d2 -->
+				<div class="d2">
+					<figure>
+						<img src="../../myproject_img/img/at1-img2.png" alt="at-2">
+						<figcaption class="fc2">
+							<img src="../../myproject_img/img/at1-img6.png">자연발효 에너지오일 28,000원
+
+						</figcaption>
+					</figure>
+				
+				</div>
+				<!-- d3 -->
+				<div class="d3">
+					<figure>
+						<img src="../../myproject_img/img/at1-img3.png" alt="at-3">
+						<figcaption class="fc3">
+							<img src="../../myproject_img/img/at1-img7.png">제주 한란 인텐스 크림 28,000원
+
+						</figcaption>
+					</figure>
+				
+				</div>
+		
+		</article>
+		<article class="at2">
+			<h3>Time Sale</h3>
+			<img src="../../myproject_img/img/at1-img8.png">
+			<div id="dv1">
+				<h6>온라인 전용 제품 50% 할인 찬스!</h6><br>
+				<h5>포레스트포맨 핸썸키트</h5><br>
+				<h6>8000원->4000원</h6><br>
+				<time>12:00</time><br><br>
+				<button id="btn1">장바구니</button>
+				<button id="btn2">제품 상세 보기</button>
+
+
+			</div>
+		</article>
+		<article class="at3">
+			<embed src="../../myproject_img/vd/main_vd.mp4" [width:"450px" height:"300px"]>
+		</article>
+		<article class="at4">
+			<img src="../../myproject_img/img/vd.png" alt="review"></article>
+			
+			<!-- footer -->
+			<footer class="ft1">
+				<nav class="nv3">
+					<ul>
+						<li><a href="#">서비스 이용약관</a></li>
+						<li class="l1">|</li>
+						
+						<li><a href="#">개인정보처리방침</a></li>
+						<li class="l1">|</li>
+					
+						<li><a href="#">서비스 이용약관</a></li>
+						<li class="l1">|</li>
+				
+						<li><a href="#">영상정보처리 운영방침</a></li>
+						<li class="l1"></li>
+					</ul>
+				</nav>
+				<nav class="nv4">
+					<ul>
+						<li>facebook:test@naver.com</li>
+						<li>e-mail:test@daum.net</li>
+						<li>Tel:02-123-0987</li>
+						<li>Fax:02-345-0987</li>
+					</ul>
+				</nav>
+			</footer>
+	
+	</div>
+  
+ </body>
+</html>

@@ -1,0 +1,280 @@
+/*
+pc상태에서 보여주는 스타일시트 화면(main.css)
+작성날짜:2022.05.20
+작성자:김례화
+*/
+/* 상단메뉴 부분 좌측 상단에 고정*/
+*{ /* '* : 모든 태그 지칭, 바디와 바디 사이의 모든 태그 !' */
+	margin:0; padding:0;
+	background-color:azure /*하늘색*/
+}
+
+/* 전체 컨테이너 영역(전체 넓이,양쪽 여백 설정) */
+.wrap{
+		width:1000px; /* 80% => 양쪽 여백 : 10%+10%=20% */
+		margin:0 auto /* margin top, bottom 여백 0, 좌우여백은 자동으로 배분이 되라는 옵션*/
+}
+/*pc상태에서 넓이가 768px보다 크면 보이지 않게 설정해주는 요소 */
+.hd2, .sc2, .sc3 {display:none;}
+
+/*화면 늘렸다 줄였다 해보면 없어졌다 생겼다 함!*/
+
+/*로고
+	left(x축) => 들여쓰기, top(위에서 아래로 이동한 위치) y축
+*/
+h1{
+	float:left;
+	position:relative;
+	left:3%;/*left:30px;, 로고 오른쪽으로 이동시키기-> px or %*/
+	top:30px; /*맨 처음에 나오는 항목의 위치 설정*/
+}
+/*로고를 기준 상단메뉴 오른쪽 배치*/
+.nv1{
+	width:60%;height:50px; /*이미지 위의 선과 맞추기 위해서*/
+	float:left; /*중간은 left*/
+	border:1px solid black; /*영역표시 확인용*/
+	position:relative; /* nv2를 오른쪽에 배치 */
+	left:5%;top:30px; /*y푹은 변화X */
+	z-index:5; /*동영상, 이미지와 겹치는 경우 => 메뉴가 맨앞에 배치(z-index큰 값이 제일 앞에 배치) */
+}
+
+ul{
+	list-style-type:none; /*메뉴의 마크 제거*/
+}
+/*1레벨 메뉴 선택 시 색깔 부여 (스타일 적용대상자(태그,클래스 선택자:hover))*/
+.main1:hover{ /*SHOPPING*/
+	background-color:mediumpurple;
+	color:white;
+}
+.main2:hover{/*EVENT*/
+	background-color:mediumpurple;
+	color:white;
+}
+.main3:hover{/*ABOUT US*/
+	background-color:mediumpurple;
+	color:white;
+}
+/*nv1 범위 테두리 내에서의 배치 결정
+   SHOPPING을 기준해서 인접한 다른 태그를 오른쪽에 배치(relative 사용)
+*/
+.main1{
+	position:absolute;
+	left:14%; /*로고문자 기준 -> 테두리 -> 14%정도 오른쪽 이동(X축) */
+	top:10px; /*테두리에서의 아래로*/ 
+}
+.main2{
+	position:absolute; /*relative하면 바로 위의 인접한 태그가 SHOPPING이 포함된 바로 위의 div 태그가 기준이 되므로 이상하게 나옴*/
+	left:43%;			/*그러므로 absolute 줘야 함. 테두리 기준으로 잡아야 하므로 */
+	top:10px; 
+}
+.main3{
+	position:absolute;
+	right:17%; /*left:67%;오른쪽 테두리 기준으로 오른쪽에서 왼쪽으로 20%이동*/
+	top:10px; /*테두리에서의 아래로 */
+}
+/*
+	서브 메뉴를 안나오게 설정 1) absolute 이용 -> top:-9999를 이용해서 위로 배치
+								2) display;none -> block,inline,inline-block
+*/
+.sub{
+	display:none; /*안보이는 부분은 보이게 설정해서 영역 확인 */
+	position:absolute;
+	top:40px;
+	left:77px; /* % 또는 pixel로 설정 */
+	border:1px solid black; /* 영역 설정할 때 border 속성을 줘서 확인할 것 */
+}
+.sub li,.sub li a{ /*유형별 제품의 항목의 색깔은 purple */
+	z-index:15;
+	color:purple;
+}
+
+/*2단계 옆의 3단계 메뉴*/
+.sub1{
+	display:none;
+	float:right;
+	position:relative; /*absolute라면 -> left, top 줘서 여러번 테스트 해야 함*/
+}
+.nv1 div a{
+	display:inline-block; /* 가로로 정렬(inline)이 되면서 width, height를 줄 경우
+									줄바꿈도 되어야 하는 경우에 사용하는 속성, lnline: 가로로 정렬 */
+	padding:5px; /*전부 5px(안쪽 여백)*/
+}
+.nv2{
+	width:13%;
+	height:50px;/*nv1이랑 높이 맞춤
+						nv1과 nv2 사이의 거리, nv2와 오른쪽 여백 고려
+						40%-13%=27% -> 27%/2=13.5*/
+	border:1px solid black;
+	float:right;
+	position:relative; /*nv1 기준으로*/
+	top:30px;/*nv1과 같은 높이*/
+	right:3%; /*left:?% -> 계산이 쉽지 않기 때문에*/
+}
+
+/*상단 메뉴2(메뉴 항목의 정렬, 여백 설정)*/
+.nv2 ul >li{/*클래스 선택자 nv2 내부에 있는 모든 ul태그에 있는 바로 밑의 li태그*/
+				float:left;
+				margin-left:10%; /*상단메뉴1과 상단메뉴2 사이의 거리를 세밀하게 조절*/
+				margin-top:20px;
+				font-size:11px;
+}
+.nv2 ul li a{/*login,MyPage*/
+	display:inline-block;
+	padding:5px;
+}
+.nv2 ul li a:hover{
+	background-color:mediumpurple;
+	color:white;
+}
+/*상단 메뉴와 슬라이드 이미지 사이의 거리 설정*/
+.cycle-slideshow{
+		position:relative; /*위의 header 태그를 기준으로 바로 밑에 배치!*/
+		top:100px; /*80px -> nv2의 영역과 겹치기 때문에 */
+		z-index:1;
+}
+.cycle-slideshow img{/*이미지 3개 전부*/
+		height:350px; /*400px->350px 크기 줄임*/
+}
+
+/*슬라이드 이미지 바로 밑에 영역(베스트 셀러가 나오는 부분)*/
+.at1{
+	width:60%;
+	height:250px;
+	border:1px solid black;
+	float:left; /*왼쪽 정렬*/
+	position:relative;
+	left:3%; top:100px;
+	z-index:3; /*이미지와 동영상 겹치는 경우 우선순위 주기 위해*/
+}
+/*
+이미지의 크기와 다른 이미지의 정렬방식 inline-block
+영역설정내부에 또 다른 position을 설정할 수 있다.
+*/
+.d1>figure>img{  /*left:0*/
+	width:200px;
+	height:200px;
+	border:1px solid black;
+	display:inline-block;/*가로 방향 정렬*/
+	position:absolute;
+	top:50px; /*이미지와 이미지의 설명글을 구분(left:0), bestseller 위의 테두리 기준*/
+	z-index:6;
+}
+.d2>figure>img{
+	width:200px;
+	height:200px;
+	border:1px solid black;
+	display:inline-block;/*가로 방향 정렬*/
+	position:absolute;
+	top:50px; /*bestseller 위의 테두리 기준*/
+	left:200px;
+	z-index:6;											/*d1:left:0px; d2:left:200px; d3:left:400px*/
+}
+.d3>figure>img{
+	width:200px;
+	height:200px;
+	border:1px solid black;
+	display:inline-block;/*가로 방향 정렬*/
+	position:absolute;
+	left:400px;/*3번째 이미지가 나오는 시작점*/
+	top:50px; /*bestseller 위의 테두리 기준*/
+	z-index:6;
+}
+/*이미지 소개글자 정렬, 크기 지정*/
+.fc1{
+	font-size:11px;
+	float:left; /*왼쪽 정렬*/
+	position:relative;
+	left:5px;
+}
+.fc2{
+	font-size:11px;
+	float:left; /*왼쪽 정렬*/
+	position:relative;
+	left:18px;
+
+}
+.fc3{
+	font-size:11px;
+	float:right; /*오른쪽 기준해서 왼쪽에 배치*/
+	position:relative;
+	right:25px; /*오른쪽 테두리를 기준, 왼쪽에서 25px 이동*/
+}		/*픽셀 수는 해상도에 따라 다르게 나타남 =상대적인 좌표값-> 그러므로 본인 컴퓨터 해상도 맞춰서 하면 됨.*/
+/* at1 옆에 배치 -> at2 : relative */
+.at2{
+	width:34%;
+	height:250px; /* 40%-7%=33% -> 7%/2=3.5% */
+	border:1px solid black;
+	float:right; /*오른쪽 정렬*/
+	position:relative;
+	top:100px;
+	z-index:3; /*이미지와 동영상 겹치는 경우 우선순위 주기 위해*/
+}
+
+.at2>img{
+	width:170px;height:200px;
+	display:inline-block;
+	position:relative;
+	top:20px; /*바로 옆의 이미지와 같은 높이에서 보여주기 위해서*/
+	z-index:6;
+}
+#dv1{/*글자들을 이미지 오른쪽에 배치*/ /*내 방법*/
+	font-size:15px;
+	float:right;
+	display:inline-block;
+	position:relative;
+	right:15px;
+	top:35px;
+
+	/*강사님 방법
+	display:inline-block;
+	position:relative;
+	top:-175px;
+	left:130px; -> 이미지 옆에 글자가 출력
+	z-index:9;*/
+}
+/*동영상의 위치, 여백을 설정*/
+.at3> embed{ /*동영상은 embed 태그 안에 있음*/
+	position:relative;
+	width:450px;
+	height:300px; /*동영상 크기 그대로*/
+	top:100px; /*margin-top:130px;*/
+	margin:50px; /*-> 강사님 방법, top:150px;,left:3%; = 내 방법*/
+}
+/* 화장품 광고 동영상 오른쪽에 배치 float:right */
+.at4> img{
+	float:right;
+	width:450px;
+	height:300px;
+	position:relative;
+	top: -255px; /*음수로 해서 위로 올리는 것 y축은 -가 위로 감*/
+	right:20px; /*오른쪽 기준에서 왼쪽으로 이동 margin-right:?px; */
+}
+/* footer 부분설정 */
+.ft1{
+	clear:both; /*위의 설정한 배치 속성 초기화 설정 해제*/
+	border:1px solid black;
+	position:relative;
+	height:100px;
+	margin:0 auto; /*양쪽의 폭은 자동으로 조절*/
+	top:-200px;
+}
+.nv3{
+	position:relative;
+	top:20px; /*테두리에서의 적절한 거리 유지(위->아래)*/
+}
+.nv3 ul > li{
+	float:left; /*relative 기준. 왼쪽 정렬*/
+	margin-left:4.3%; /*소수점도 가능하다는 것을 보여주기 위해 쓰는 것*/
+}
+.nv4{
+	position:relative;
+	top:40px;
+}
+.nv4 ul{
+	list-style-type:none;/* 마커제거 */
+}
+.nv4 ul > li{
+	float:left;
+	margin-left:4%;
+	font-size:11px;
+}
